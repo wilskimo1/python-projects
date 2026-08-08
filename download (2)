@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+instance/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+python/lib/python3.12/site-packages/
+deployment_docs.html
+flask-infra/
+flask_session/
+EC2_SSH_KEY
+EC2_SSH_KEY.pub
+my-aws-key.pem

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}AWS Cost Tracker - Will Robinson{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">AWS Cost Tracker</h1>
+    <p class="text-center">Track your AWS spending and stay within budget.</p>
+
+    <div class="text-center mt-4">
+        {% if cost_display != 'N/A' %}
+            <h3>Current AWS Spend: ${{ cost_display }}</h3>
+            <h4 class="{{ css_class }}" role="alert">{{ alert_status }}</h4>
+        {% else %}
+            <h3 class="text-warning" role="alert">⚠️ {{ alert_status }}</h3>
+        {% endif %}
+    </div>
+
+    <!-- 🏆 Go Back Button -->
+    <div class="text-center mt-4">
+        <a href="{{ url_for('project_detail', project_id='aws-cost') }}" class="btn btn-secondary">
+            ⬅️ Go Back to Project Details
+        </a>
+    </div>
+</div>
+{% endblock %}

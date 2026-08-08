@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Experience - Will Robinson{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Professional Skills & Experience</h1>
+    <p class="lead text-center">A summary of my expertise, certifications, and technical skills.</p>
+
+    <!-- 🏅 Certifications via Credly -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-auto"><div data-iframe-width="100" data-iframe-height="200" data-share-badge-id="952f0071-5974-4753-9487-a7b47566859c" data-share-badge-host="https://www.credly.com"></div></div>
+        <div class="col-auto"><div data-iframe-width="100" data-iframe-height="200" data-share-badge-id="8d927d2f-3ae9-42a8-a545-c1cb5f94975e" data-share-badge-host="https://www.credly.com"></div></div>
+        <div class="col-auto"><div data-iframe-width="100" data-iframe-height="200" data-share-badge-id="e91dc156-f68b-4e50-a677-bae2e41c0c8f" data-share-badge-host="https://www.credly.com"></div></div>
+        <div class="col-auto"><div data-iframe-width="100" data-iframe-height="200" data-share-badge-id="0598dd26-4893-4ff4-a8c1-3d0185ddddb7" data-share-badge-host="https://www.credly.com"></div></div>
+        <div class="col-auto"><div data-iframe-width="100" data-iframe-height="200" data-share-badge-id="1f308bfe-d638-4840-9925-56440d9ea6c2" data-share-badge-host="https://www.credly.com"></div></div>
+    </div>
+
+    <!-- 💼 Experience Cards Styled Like Projects -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-cloud me-2"></i>Cloud & Infrastructure</h5>
+                    <p class="card-text">AWS (Compute, Storage, Networking, CI/CD, Security, IaC), ITIL, SaaS Application Management</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-shield-alt me-2"></i>Security & Compliance</h5>
+                    <p class="card-text">PII Protection, Regulatory Compliance (GDPR, SOC 2, ISO 27001), Identity & Access Management (IAM)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-server me-2"></i>IT Operations & Support</h5>
+                    <p class="card-text">Incident Management, Disaster Recovery, ServiceNow, Change Management, Release Management</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-code me-2"></i>OS & Scripting</h5>
+                    <p class="card-text">Linux & Windows Server Administration, Shell Scripting, Application Performance Tuning</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-tasks me-2"></i>Project & Vendor Management</h5>
+                    <p class="card-text">SDLC, Agile (JIRA, Confluence), Stakeholder Engagement, Third-Party Risk Management</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-laptop-code me-2"></i>DevOps</h5>
+                    <p class="card-text">Python & Flask Development, AWS Cloud Solutions, Database Management (PostgreSQL, DynamoDB), IT Security & Compliance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 🔁 Embed Badge Script -->
+<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+{% endblock %}
+
+

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Serverless Chatbot - Will Robinson{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Serverless Chatbot</h1>
+    <p class="text-center">Chat with an AI-powered serverless bot.</p>
+    <p class="text-center">(Currently, all messages are predefined. AI-Powered bot is under construction)</p>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-end"><strong>User:</strong> Hello</div>
+            <div class="col-md-6 text-start"><strong>Bot:</strong> Hi there! How can I help you today?</div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6 text-end"><strong>User:</strong> How are you?</div>
+            <div class="col-md-6 text-start"><strong>Bot:</strong> I'm doing great! How about you?</div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6 text-end"><strong>User:</strong> What is your name?</div>
+            <div class="col-md-6 text-start"><strong>Bot:</strong> I'm your friendly chatbot!</div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6 text-end"><strong>User:</strong> Bye</div>
+            <div class="col-md-6 text-start"><strong>Bot:</strong> Goodbye! Have a great day!</div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6 text-end"><strong>User:</strong> Help</div>
+            <div class="col-md-6 text-start"><strong>Bot:</strong> I'm here to assist you! Ask me anything.</div>
+        </div>
+    </div>
+
+
+    <!-- Chat Box Container -->
+    <div class="chat-container">
+        <div id="chat-box" class="chat-box"></div> <!-- ✅ Chat Box -->
+        
+        <!-- User Input Section -->
+        <div class="input-group mt-3">
+            <input type="text" id="user-input" class="form-control" placeholder="Type a message...">
+            <button id="send-btn" class="btn btn-primary">Send</button> <!-- ✅ Send Button -->
+        </div>
+    </div>
+
+        <!-- Go Back Button -->
+    <div class="text-center mt-4">
+        <a href="{{ url_for('project_detail', project_id='serverless-chatbot') }}" class="btn btn-secondary">
+            ⬅️ Go Back to Project Details
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}
