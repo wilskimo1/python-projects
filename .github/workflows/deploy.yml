@@ -1,0 +1,35 @@
+name: 🚀 Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🔐 Set up SSH Key
+        run: |
+          echo "${{ secrets.EC2_DEPLOY_KEY }}" > key.pem
+          chmod 600 key.pem
+
+      - name: 📦 Deploy to EC2 + Health Check
+        run: |
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i key.pem ec2-user@3.228.64.237 /bin/bash << 'ENDSSH'
+          set -e
+          cd flask-app
+          # Ensure the repo uses SSH for pulling
+          git remote set-url origin git@github.com:wilskimo1/flask-project.git
+          git fetch origin main
+          git reset --hard origin/main
+          source venv/bin/activate
+          sudo systemctl restart flask-app
+          echo "🩺 Waiting for Flask app to start..."
+          sleep 5
+          curl -f http://127.0.0.1:5000/health && echo "✅ Health check passed!" || (echo "❌ Health check failed!" && exit 1)
+          ENDSSH

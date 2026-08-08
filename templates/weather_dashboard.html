@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Weather Dashboard - Will Robinson{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">🌤️ Interactive Weather Dashboard</h1>
+    <p class="text-center">Get real-time weather updates.</p>
+
+    <div class="input-group">
+        <input type="text" id="city-input" class="form-control weather-input" placeholder="City (e.g., Miami)">
+        <input type="text" id="state-input" class="form-control weather-input" placeholder="State (optional, e.g., FL)" maxlength="2">
+        <button id="fetch-weather-btn" class="btn btn-primary">Search</button>
+    </div>
+
+    <div id="weather-result" class="text-center mt-4">
+        <h2 id="weather-city">📍 City: </h2>
+        <h3 id="weather-temp">🌡️ Temperature: --°F</h3>
+        <p id="weather-low-high">🔻 Low: --°F | 🔺 High: --°F</p>
+        <p id="weather-humidity">💧 Humidity: --%</p>
+        <p id="weather-description">☁️ Description: --</p>
+        <img id="weather-icon" src="" alt="" style="display: none;">
+    </div>
+
+    <!-- Go Back Button -->
+    <div class="text-center mt-4">
+        <a href="{{ url_for('project_detail', project_id='weather-dashboard') }}" class="btn btn-secondary">
+            ⬅️ Go Back to Project Details
+        </a>
+    </div>
+</div>
+
+<script>
+document.getElementById("fetch-weather-btn").addEventListener("click", function () {
+    const city = document.getElementById("city-input").value.trim();
+    const state = document.getElementById("state-input").value.trim().toUpperCase();
+    
+    if (!city) {
+        alert("Please enter a city!");
+        return;
+    }
+
+    // ✅ Construct the query parameters (City only OR City + State)
+    let query = `/weather?city=${encodeURIComponent(city)}`;
+    if (state) {
+        query += `&state=${encodeURIComponent(state)}`;
+    }
+
+    fetch(query)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+
+            document.getElementById("weather-city").innerText = `📍 City: ${data.city}`;
+            document.getElementById("weather-temp").innerText = `🌡️ Temperature: ${data.temperature}°F`;
+            document.getElementById("weather-low-high").innerText = `🔻 Low: ${data.temp_min}°F | 🔺 High: ${data.temp_max}°F`;
+            document.getElementById("weather-humidity").innerText = `💧 Humidity: ${data.humidity}%`;
+            document.getElementById("weather-description").innerText = `☁️ Description: ${data.weather}`;
+            
+            const iconUrl = `https://openweathermap.org/img/wn/${data.icon}.png`;
+            const weatherIcon = document.getElementById("weather-icon");
+            weatherIcon.src = iconUrl;
+            weatherIcon.style.display = "inline";  // Show the weather icon
+        })
+        .catch(error => console.error("Error fetching weather data:", error));
+});
+</script>
+
+{% endblock %}

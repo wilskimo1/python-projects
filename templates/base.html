@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Will Robinson / IT Professional{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Will Robinson / IT Professional</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/professional_skills">Professional Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects">Project List</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="/deployment-docs">Deployment Docs</a></li>-->
+                    <li class="nav-item"><a class="nav-link" href="/knowledge">Knowledge Repository</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<!-- Page Content -->
+<div class="container mt-5 pt-5">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container text-center">
+        <p class="mb-1"><strong>Contact:</strong> 904-566-0355 | <a href="mailto:willmrobinsonjr@gmail.com">willmrobinsonjr@gmail.com</a></p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/william-robinson-87726687/" target="_blank" aria-label="LinkedIn">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 3C2.895 3 2 3.895 2 5V19C2 20.105 2.895 21 4 21H20C21.105 21 22 20.105 22 19V5C22 3.895 21.105 3 20 3H4ZM8 17H5V9H8V17ZM6.5 7.75C5.395 7.75 4.5 6.855 4.5 5.75C4.5 4.645 5.395 3.75 6.5 3.75C7.605 3.75 8.5 4.645 8.5 5.75C8.5 6.855 7.605 7.75 6.5 7.75ZM19 17H16V12.5C16 11.12 15.88 10 14.5 10C13.12 10 13 11.12 13 12.5V17H10V9H13V10.08C13.56 9.3 14.45 8.5 15.92 8.5C18.65 8.5 19 10.35 19 12.43V17Z" fill="#0A66C2"/>
+                </svg>
+            </a>
+            <a href="https://x.com/Wilskimo" target="_blank" aria-label="X">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23 2L13.5 12L23 22H19L11 14L5 22H1L10 12L1 2H5L12 10L18.5 2H23Z" fill="black"/>
+                </svg>
+            </a>
+        </div>
+        <p class="copyright">© 2025 Will Robinson. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
+

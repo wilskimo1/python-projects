@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}S3 File Manager - Will Robinson{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">S3 File Manager</h1>
+    <p class="text-center">Upload, delete, and manage files on AWS S3.</p>
+
+    <div class="text-center mt-4">
+        <a href="{{ url_for('project_detail', project_id='s3-file-manager') }}" class="btn btn-secondary">
+            ⬅️ Go Back to Project Details
+        </a>
+    </div>
+
+
+    <!-- S3 File Manager Dashboard Image (Always Visible) -->
+<div class="text-center mt-4">
+    <p class="text-muted">🔍 Click to enlarge the S3 File Manager preview</p>
+    <a href="#" data-bs-toggle="modal" data-bs-target="#s3FileManagerImageModal">
+        <img src="{{ url_for('static', filename='images/s3FileManager.png') }}" 
+             alt="S3 File Manager" class="img-thumbnail" style="max-width: 200px;">
+    </a>
+</div>
+
+<!-- Bootstrap Modal for Enlarged Image -->
+<div class="modal fade" id="s3FileManagerImageModal" tabindex="-1" aria-labelledby="s3FileManagerImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="s3FileManagerImageModalLabel">S3 File Manager</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{ url_for('static', filename='images/s3FileManager.png') }}" 
+                     alt="S3 File Manager" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- If the user is not logged in, show login button -->
+    {% if not current_user.is_authenticated %}
+    <div class="text-center mt-4">
+        <a href="{{ url_for('login', next=url_for('s3_file_manager.s3_dashboard')) }}" class="btn btn-primary">
+            🔒 Login to Access S3 File Manager
+        </a>
+    </div>
+    {% else %}
+    
+    <!-- File Upload -->
+    <div class="mt-4">
+        <input type="file" id="fileInput" class="form-control">
+        <button type="button" id="uploadBtn" class="btn btn-primary" onclick="uploadFile()">Upload</button>
+    </div>
+
+    <!-- File List -->
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Size</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="fileTable">
+                <tr><td colspan="3" class="text-center">No files found.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    {% endif %}
+</div>
+
+<!-- ✅ Include external script.js file -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+{% endblock %}

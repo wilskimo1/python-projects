@@ -1,0 +1,385 @@
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #000;
+}
+
+/*I may remove below
+/* Ensure navbar collapses properly at medium screens */
+@media (max-width: 1200px) {
+    .navbar-nav {
+        flex-wrap: wrap;  /* Allow items to wrap instead of overflowing */
+        justify-content: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 5px; /* Reduce spacing between items */
+    }
+
+    .navbar-brand {
+        font-size: 1rem; /* Reduce navbar brand size on smaller screens */
+    }
+}
+/*i may remove above
+
+/* Hero Section - Ensuring Full View & Alignment */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+/* Centered Intro Text */
+.bio {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.bio strong,
+.bio b {
+    color: #000; /* or use #1a1a1a for a softer black */
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    background-color: white;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 1px solid #ddd;
+}
+
+.footer p {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons svg {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons svg:hover {
+    transform: scale(1.1);
+}
+
+/* Copyright */
+.copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Project Cards */
+.project-card {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Remove underlines from links */
+.project-link {
+    text-decoration: none;
+    color: inherit;
+}
+/* Ensure all project cards have the same height */
+.project-card {
+    height: 100%; /* Make all cards the same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-card .card-body {
+    flex-grow: 1; /* Ensures equal spacing inside the cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.project-card p {
+    flex-grow: 1; /* Ensures descriptions align properly */
+}
+
+.project-card button {
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .project-card {
+        height: auto; /* Allow flexibility on smaller screens */
+    }
+}
+/* Experience Page Enhancements */
+.experience-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.experience-card h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+}
+
+.experience-card h2 i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.experience-card p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 10px;
+}
+
+.experience-card:hover {
+    transform: scale(1.03);
+}
+
+body {
+    background: white !important;
+    color: black !important;
+}
+
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+}
+.btn-primary {
+    background-color: #2575fc;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #1a5ed8;
+}
+/* Contact Page Styling */
+.contact-container {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Card within contact container */
+.contact-container .card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+}
+
+/* Headline */
+.contact-container h2 {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+/* Form labels with icons */
+.contact-container .form-label i {
+    margin-right: 6px;
+    color: #007bff;
+}
+
+/* Input fields */
+.contact-container .form-control {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+/* Submit button */
+.contact-container .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+
+.contact-container .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Social buttons */
+.contact-container .btn-outline-dark {
+    margin: 0 5px;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* Success message */
+#successMessage {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+/* Match experience cards to project cards style */
+.experience-card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    height: 100%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.experience-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.experience-card h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.experience-card p {
+    font-size: 1rem;
+    color: #333;
+}
+/* Knowledge Repository Table */
+.table thead th {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Make action buttons more uniform */
+.table .btn {
+    min-width: 120px;
+}
+
+/* Knowledge Repository section */
+.knowledge-container {
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 60px;
+}
+
+.knowledge-container h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.knowledge-container p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
